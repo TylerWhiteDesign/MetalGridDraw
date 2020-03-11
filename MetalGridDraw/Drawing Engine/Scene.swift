@@ -30,15 +30,18 @@ class Scene
     
     func reset(includingCamera: Bool = false) {
         cells.removeAll()
+        setupGrid()
         cellInstances = CellInstances(withCells: cells, renderer: renderer)
         
         // Set camera here
+        updateViewMatrix()
     }
     
     func updateViewMatrix() {
-        let translationMatrix = float4x4(translation: float3(0, 0, 0)).inverse
+        let cameraCenter = float3(0.5, 0.5, 0)
+        let translationMatrix = float4x4(translation: cameraCenter).inverse
         
-        let scaleTranslationMatrix = float4x4(translation: [0, 0, 0])
+        let scaleTranslationMatrix = float4x4(translation: cameraCenter)
         let scaleMatrix = float4x4(scaling: [2, 2, 1])
         
         renderer.uniforms.viewMatrix = translationMatrix * scaleTranslationMatrix * scaleMatrix * scaleTranslationMatrix.inverse

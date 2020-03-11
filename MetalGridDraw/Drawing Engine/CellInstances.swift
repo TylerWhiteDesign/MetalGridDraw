@@ -61,7 +61,6 @@ class CellInstances
             pipelineDescriptor.vertexFunction = renderer.library.makeFunction(name: "vertex_instances")
             pipelineDescriptor.fragmentFunction = renderer.library.makeFunction(name: "fragment_instances")
             pipelineDescriptor.colorAttachments[0].pixelFormat = renderer.metalView.colorPixelFormat
-            pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
             
             let vertexDescriptor = MTLVertexDescriptor()
             vertexDescriptor.attributes[0].format = .float2
