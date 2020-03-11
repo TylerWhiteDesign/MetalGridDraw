@@ -3,7 +3,6 @@
 //
 
 import MetalKit
-import Promises
 
 class Scene
 {
@@ -14,8 +13,8 @@ class Scene
     private var lastStrokeCell: Cell?
     private var lastStrokePoint: float2?
     static var isExploding = false
-    static let columns = 100
-    static let rows = 100
+    static let columns = 60
+    static let rows = 60
     
     //MARK: - Init
     
@@ -33,7 +32,6 @@ class Scene
         setupGrid()
         cellInstances = CellInstances(withCells: cells, renderer: renderer)
         
-        // Set camera here
         updateViewMatrix()
     }
     
@@ -47,17 +45,15 @@ class Scene
         renderer.uniforms.viewMatrix = translationMatrix * scaleTranslationMatrix * scaleMatrix * scaleTranslationMatrix.inverse
     }
     
-    func cellAtWorldPoint(_ point: float2) -> Promise<(Cell?, Int?)> {
-        return Promise { fulfill, reject in
-            self.cellInstances?.computeHit(withPoint: point).then { cellIndex in
-                guard let cellIndex = cellIndex else {
-                    fulfill((nil, nil))
-                    return
-                }
-                
-                fulfill((self.cells[Int(cellIndex)], Int(cellIndex)))
+    func cellAtWorldPoint(_ point: float2, completion: @escaping (Cell?, Int?) -> ()) {
+        cellInstances?.computeHit(withPoint: point) { index in
+            guard let cellIndex = index else {
+                completion(nil, nil)
                 return
             }
+            
+            completion(self.cells[Int(cellIndex)], Int(cellIndex))
+            return
         }
     }
     
@@ -99,7 +95,7 @@ class Scene
     //MARK: - Drawing
     
     func touchCellAtWorldPoint(_ point: float2) {
-        cellAtWorldPoint(point).then { (cell, index) in
+        cellAtWorldPoint(point) { (cell, index) in
             guard let cell = cell else {
                 return
             }
@@ -119,7 +115,7 @@ class Scene
         }
 
         for interpolatedPoint in interpolatedPoints {
-            cellAtWorldPoint(interpolatedPoint).then { (cell, index) in
+            cellAtWorldPoint(interpolatedPoint) { (cell, index) in
                 guard let currentCell = cell else {
                     return
                 }

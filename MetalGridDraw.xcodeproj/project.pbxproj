@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B151DEAE208F028E7993292F /* Pods_MetalGridDraw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121754F3B13A47067E72DC9B /* Pods_MetalGridDraw.framework */; };
 		E46C043424197962009F2EE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46C043324197962009F2EE1 /* AppDelegate.swift */; };
 		E46C043624197962009F2EE1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46C043524197962009F2EE1 /* SceneDelegate.swift */; };
 		E46C043824197962009F2EE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46C043724197962009F2EE1 /* ViewController.swift */; };
@@ -27,9 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		121754F3B13A47067E72DC9B /* Pods_MetalGridDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetalGridDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		324D8D385614558D8CB84F16 /* Pods-MetalGridDraw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetalGridDraw.release.xcconfig"; path = "Target Support Files/Pods-MetalGridDraw/Pods-MetalGridDraw.release.xcconfig"; sourceTree = "<group>"; };
-		AC777C3BBBE82D89B27FA89C /* Pods-MetalGridDraw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetalGridDraw.debug.xcconfig"; path = "Target Support Files/Pods-MetalGridDraw/Pods-MetalGridDraw.debug.xcconfig"; sourceTree = "<group>"; };
 		E46C043024197962009F2EE1 /* MetalGridDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalGridDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46C043324197962009F2EE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E46C043524197962009F2EE1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +53,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B151DEAE208F028E7993292F /* Pods_MetalGridDraw.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,18 +62,8 @@
 		48031FB8FF8DE9AF867AF468 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				121754F3B13A47067E72DC9B /* Pods_MetalGridDraw.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B0576133E5949EB788007FF1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AC777C3BBBE82D89B27FA89C /* Pods-MetalGridDraw.debug.xcconfig */,
-				324D8D385614558D8CB84F16 /* Pods-MetalGridDraw.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		E46C042724197962009F2EE1 = {
@@ -86,7 +71,6 @@
 			children = (
 				E46C043224197962009F2EE1 /* MetalGridDraw */,
 				E46C043124197962009F2EE1 /* Products */,
-				B0576133E5949EB788007FF1 /* Pods */,
 				48031FB8FF8DE9AF867AF468 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -148,11 +132,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E46C044424197963009F2EE1 /* Build configuration list for PBXNativeTarget "MetalGridDraw" */;
 			buildPhases = (
-				C1F6631E42E703B9580D30E3 /* [CP] Check Pods Manifest.lock */,
 				E46C042C24197962009F2EE1 /* Sources */,
 				E46C042D24197962009F2EE1 /* Frameworks */,
 				E46C042E24197962009F2EE1 /* Resources */,
-				6CD6EA576B1AD609E3672605 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -208,48 +190,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		6CD6EA576B1AD609E3672605 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MetalGridDraw/Pods-MetalGridDraw-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MetalGridDraw/Pods-MetalGridDraw-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MetalGridDraw/Pods-MetalGridDraw-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C1F6631E42E703B9580D30E3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MetalGridDraw-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E46C042C24197962009F2EE1 /* Sources */ = {
@@ -412,7 +352,6 @@
 		};
 		E46C044524197963009F2EE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC777C3BBBE82D89B27FA89C /* Pods-MetalGridDraw.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -431,7 +370,6 @@
 		};
 		E46C044624197963009F2EE1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 324D8D385614558D8CB84F16 /* Pods-MetalGridDraw.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

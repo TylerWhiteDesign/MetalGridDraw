@@ -3,7 +3,6 @@
 //
 
 import MetalKit
-import Promises
 
 class CellInstances
 {
@@ -77,37 +76,35 @@ class CellInstances
     
     //MARK: - Public
     
-    func computeHit(withPoint point: float2) -> Promise<UInt?> {
-        return Promise { fulfill, reject in
-            guard let commandBuffer = self.renderer.commandQueue.makeCommandBuffer(), let computeEncoder = commandBuffer.makeComputeCommandEncoder(), let hitIndexBuffer = self.renderer.device.makeBuffer(length: MemoryLayout<UInt>.stride, options: []) else {
-                return
-            }
-            
-            computeEncoder.setComputePipelineState(self.computeHitPipelineState)
-            
-            let width = self.computeMatrixPipelineState.threadExecutionWidth
-            let threadGroupsPerGrid = MTLSizeMake(Int(ceil(Float(self.cells.count) / Float(width))), 1, 1)
-            let threadsPerGroup = MTLSizeMake(width, 1, 1)
-            computeEncoder.setBuffer(self.instancesBuffer, offset: 0, index: 0)
-            var count = UInt(self.cells.count)
-            computeEncoder.setBytes(&count, length: MemoryLayout<UInt>.size, index: 1)
-            var dimension = 1 / Float(Scene.columns)
-            computeEncoder.setBuffer(hitIndexBuffer, offset: 0, index: 2)
-            var _point = point
-            computeEncoder.setBytes(&_point, length: MemoryLayout<float2>.size, index: 3)
-            computeEncoder.setBytes(&dimension, length: MemoryLayout<Float>.size, index: 4)
-            if self.renderer.device.supportsFeatureSet(.iOS_GPUFamily4_v1) {
-                computeEncoder.dispatchThreads(MTLSizeMake(self.cells.count, 1, 1), threadsPerThreadgroup: threadsPerGroup)
-            } else {
-                computeEncoder.dispatchThreadgroups(threadGroupsPerGrid, threadsPerThreadgroup: threadsPerGroup)
-            }
-            computeEncoder.endEncoding()
-            commandBuffer.addCompletedHandler { (commandBuffer) in
-                let pointer = hitIndexBuffer.contents().bindMemory(to: UInt.self, capacity: 1)
-                fulfill(pointer.pointee != 0 ? pointer.pointee - 1 : nil)
-            }
-            commandBuffer.commit()
+    func computeHit(withPoint point: float2, completion: @escaping (UInt?) -> ()) {
+        guard let commandBuffer = renderer.commandQueue.makeCommandBuffer(), let computeEncoder = commandBuffer.makeComputeCommandEncoder(), let hitIndexBuffer = renderer.device.makeBuffer(length: MemoryLayout<UInt>.stride, options: []) else {
+            return
         }
+        
+        computeEncoder.setComputePipelineState(computeHitPipelineState)
+        
+        let width = computeMatrixPipelineState.threadExecutionWidth
+        let threadGroupsPerGrid = MTLSizeMake(Int(ceil(Float(cells.count) / Float(width))), 1, 1)
+        let threadsPerGroup = MTLSizeMake(width, 1, 1)
+        computeEncoder.setBuffer(instancesBuffer, offset: 0, index: 0)
+        var count = UInt(cells.count)
+        computeEncoder.setBytes(&count, length: MemoryLayout<UInt>.size, index: 1)
+        var dimension = 1 / Float(Scene.columns)
+        computeEncoder.setBuffer(hitIndexBuffer, offset: 0, index: 2)
+        var _point = point
+        computeEncoder.setBytes(&_point, length: MemoryLayout<float2>.size, index: 3)
+        computeEncoder.setBytes(&dimension, length: MemoryLayout<Float>.size, index: 4)
+        if renderer.device.supportsFeatureSet(.iOS_GPUFamily4_v1) {
+            computeEncoder.dispatchThreads(MTLSizeMake(cells.count, 1, 1), threadsPerThreadgroup: threadsPerGroup)
+        } else {
+            computeEncoder.dispatchThreadgroups(threadGroupsPerGrid, threadsPerThreadgroup: threadsPerGroup)
+        }
+        computeEncoder.endEncoding()
+        commandBuffer.addCompletedHandler { (commandBuffer) in
+            let pointer = hitIndexBuffer.contents().bindMemory(to: UInt.self, capacity: 1)
+            completion(pointer.pointee != 0 ? pointer.pointee - 1 : nil)
+        }
+        commandBuffer.commit()
     }
     
     func computeMatrix(withCommandBuffer commandBuffer: MTLCommandBuffer) {
@@ -158,7 +155,7 @@ extension CellInstances: Renderable
         var pointer = instancesBuffer.contents().bindMemory(to: CellInstanceAttributes.self, capacity: cells.count)
         for cell in cells {
             if Scene.isExploding {
-                cell.center = cell.center + cell.velocity * 4
+                cell.center = cell.center + cell.velocity * 3
             }
             pointer.pointee.center = cell.center
             pointer.pointee.scaleMatrix =  cell.instanceAttributes.scaleMatrix
