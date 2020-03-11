@@ -3,19 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B151DEAE208F028E7993292F /* Pods_MetalGridDraw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121754F3B13A47067E72DC9B /* Pods_MetalGridDraw.framework */; };
 		E46C043424197962009F2EE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46C043324197962009F2EE1 /* AppDelegate.swift */; };
 		E46C043624197962009F2EE1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46C043524197962009F2EE1 /* SceneDelegate.swift */; };
 		E46C043824197962009F2EE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46C043724197962009F2EE1 /* ViewController.swift */; };
 		E46C043B24197962009F2EE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46C043924197962009F2EE1 /* Main.storyboard */; };
 		E46C043D24197963009F2EE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46C043C24197963009F2EE1 /* Assets.xcassets */; };
 		E46C044024197963009F2EE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46C043E24197963009F2EE1 /* LaunchScreen.storyboard */; };
+		E46C044824197A70009F2EE1 /* TouchMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46C044724197A70009F2EE1 /* TouchMetalView.swift */; };
+		E46C044A24197AB9009F2EE1 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46C044924197AB9009F2EE1 /* Renderer.swift */; };
+		E46C044C24197AF2009F2EE1 /* MathLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46C044B24197AF2009F2EE1 /* MathLibrary.swift */; };
+		E4A9AC0924197BA900513CAC /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9AC0824197BA900513CAC /* Scene.swift */; };
+		E4A9AC0B24197BFC00513CAC /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9AC0A24197BFC00513CAC /* Cell.swift */; };
+		E4A9AC0D24197C0400513CAC /* CellInstances.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9AC0C24197C0400513CAC /* CellInstances.swift */; };
+		E4A9AC1124197E7200513CAC /* Compute.metal in Sources */ = {isa = PBXBuildFile; fileRef = E4A9AC0F24197E7200513CAC /* Compute.metal */; };
+		E4A9AC1224197E7200513CAC /* Render.metal in Sources */ = {isa = PBXBuildFile; fileRef = E4A9AC1024197E7200513CAC /* Render.metal */; };
+		E4A9AC1524197EB600513CAC /* Interpolator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9AC1424197EB600513CAC /* Interpolator.swift */; };
+		E4A9AC17241980CE00513CAC /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9AC16241980CE00513CAC /* Renderable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		121754F3B13A47067E72DC9B /* Pods_MetalGridDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetalGridDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		324D8D385614558D8CB84F16 /* Pods-MetalGridDraw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetalGridDraw.release.xcconfig"; path = "Target Support Files/Pods-MetalGridDraw/Pods-MetalGridDraw.release.xcconfig"; sourceTree = "<group>"; };
+		AC777C3BBBE82D89B27FA89C /* Pods-MetalGridDraw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetalGridDraw.debug.xcconfig"; path = "Target Support Files/Pods-MetalGridDraw/Pods-MetalGridDraw.debug.xcconfig"; sourceTree = "<group>"; };
 		E46C043024197962009F2EE1 /* MetalGridDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalGridDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46C043324197962009F2EE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E46C043524197962009F2EE1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +38,18 @@
 		E46C043C24197963009F2EE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E46C043F24197963009F2EE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E46C044124197963009F2EE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E46C044724197A70009F2EE1 /* TouchMetalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchMetalView.swift; sourceTree = "<group>"; };
+		E46C044924197AB9009F2EE1 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		E46C044B24197AF2009F2EE1 /* MathLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathLibrary.swift; sourceTree = "<group>"; };
+		E46C044D24197AFA009F2EE1 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		E46C044E24197B02009F2EE1 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		E4A9AC0824197BA900513CAC /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		E4A9AC0A24197BFC00513CAC /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		E4A9AC0C24197C0400513CAC /* CellInstances.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellInstances.swift; sourceTree = "<group>"; };
+		E4A9AC0F24197E7200513CAC /* Compute.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Compute.metal; sourceTree = "<group>"; };
+		E4A9AC1024197E7200513CAC /* Render.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Render.metal; sourceTree = "<group>"; };
+		E4A9AC1424197EB600513CAC /* Interpolator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolator.swift; sourceTree = "<group>"; };
+		E4A9AC16241980CE00513CAC /* Renderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +57,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B151DEAE208F028E7993292F /* Pods_MetalGridDraw.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48031FB8FF8DE9AF867AF468 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				121754F3B13A47067E72DC9B /* Pods_MetalGridDraw.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0576133E5949EB788007FF1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC777C3BBBE82D89B27FA89C /* Pods-MetalGridDraw.debug.xcconfig */,
+				324D8D385614558D8CB84F16 /* Pods-MetalGridDraw.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E46C042724197962009F2EE1 = {
 			isa = PBXGroup;
 			children = (
 				E46C043224197962009F2EE1 /* MetalGridDraw */,
 				E46C043124197962009F2EE1 /* Products */,
+				B0576133E5949EB788007FF1 /* Pods */,
+				48031FB8FF8DE9AF867AF468 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +102,43 @@
 		E46C043224197962009F2EE1 /* MetalGridDraw */ = {
 			isa = PBXGroup;
 			children = (
+				E46C044D24197AFA009F2EE1 /* Bridging-Header.h */,
+				E46C044E24197B02009F2EE1 /* Common.h */,
 				E46C043324197962009F2EE1 /* AppDelegate.swift */,
 				E46C043524197962009F2EE1 /* SceneDelegate.swift */,
 				E46C043724197962009F2EE1 /* ViewController.swift */,
+				E46C044724197A70009F2EE1 /* TouchMetalView.swift */,
+				E4A9AC1324197E7E00513CAC /* Drawing Engine */,
 				E46C043924197962009F2EE1 /* Main.storyboard */,
 				E46C043C24197963009F2EE1 /* Assets.xcassets */,
 				E46C043E24197963009F2EE1 /* LaunchScreen.storyboard */,
 				E46C044124197963009F2EE1 /* Info.plist */,
 			);
 			path = MetalGridDraw;
+			sourceTree = "<group>";
+		};
+		E4A9AC0E24197E7200513CAC /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				E4A9AC0F24197E7200513CAC /* Compute.metal */,
+				E4A9AC1024197E7200513CAC /* Render.metal */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		E4A9AC1324197E7E00513CAC /* Drawing Engine */ = {
+			isa = PBXGroup;
+			children = (
+				E46C044924197AB9009F2EE1 /* Renderer.swift */,
+				E4A9AC16241980CE00513CAC /* Renderable.swift */,
+				E4A9AC0824197BA900513CAC /* Scene.swift */,
+				E4A9AC0A24197BFC00513CAC /* Cell.swift */,
+				E4A9AC0C24197C0400513CAC /* CellInstances.swift */,
+				E46C044B24197AF2009F2EE1 /* MathLibrary.swift */,
+				E4A9AC1424197EB600513CAC /* Interpolator.swift */,
+				E4A9AC0E24197E7200513CAC /* Shaders */,
+			);
+			path = "Drawing Engine";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +148,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E46C044424197963009F2EE1 /* Build configuration list for PBXNativeTarget "MetalGridDraw" */;
 			buildPhases = (
+				C1F6631E42E703B9580D30E3 /* [CP] Check Pods Manifest.lock */,
 				E46C042C24197962009F2EE1 /* Sources */,
 				E46C042D24197962009F2EE1 /* Frameworks */,
 				E46C042E24197962009F2EE1 /* Resources */,
+				6CD6EA576B1AD609E3672605 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +209,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6CD6EA576B1AD609E3672605 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MetalGridDraw/Pods-MetalGridDraw-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MetalGridDraw/Pods-MetalGridDraw-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MetalGridDraw/Pods-MetalGridDraw-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1F6631E42E703B9580D30E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MetalGridDraw-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E46C042C24197962009F2EE1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E46C044824197A70009F2EE1 /* TouchMetalView.swift in Sources */,
 				E46C043824197962009F2EE1 /* ViewController.swift in Sources */,
+				E4A9AC1224197E7200513CAC /* Render.metal in Sources */,
 				E46C043424197962009F2EE1 /* AppDelegate.swift in Sources */,
+				E46C044A24197AB9009F2EE1 /* Renderer.swift in Sources */,
+				E4A9AC0924197BA900513CAC /* Scene.swift in Sources */,
+				E4A9AC0B24197BFC00513CAC /* Cell.swift in Sources */,
 				E46C043624197962009F2EE1 /* SceneDelegate.swift in Sources */,
+				E4A9AC1524197EB600513CAC /* Interpolator.swift in Sources */,
+				E4A9AC1124197E7200513CAC /* Compute.metal in Sources */,
+				E46C044C24197AF2009F2EE1 /* MathLibrary.swift in Sources */,
+				E4A9AC17241980CE00513CAC /* Renderable.swift in Sources */,
+				E4A9AC0D24197C0400513CAC /* CellInstances.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +350,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "MetalGridDraw/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -275,6 +404,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "MetalGridDraw/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -282,6 +412,7 @@
 		};
 		E46C044524197963009F2EE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC777C3BBBE82D89B27FA89C /* Pods-MetalGridDraw.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +431,7 @@
 		};
 		E46C044624197963009F2EE1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 324D8D385614558D8CB84F16 /* Pods-MetalGridDraw.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
