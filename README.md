@@ -1,2 +1,2 @@
 # MetalGridDraw
-A grid-based drawing app using Metal (with a couple exciting enhancements).
+A grid-based drawing app using Metal (with one WILD enhancement)!
